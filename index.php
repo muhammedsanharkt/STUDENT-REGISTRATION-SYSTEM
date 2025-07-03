@@ -14,87 +14,8 @@ $students = $student->getAll();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-  <style>
-    body {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-      min-height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    .main-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border: none;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    }
-    .card-header {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
-      color: white !important;
-      border: none !important;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-      border: none;
-      padding: 12px 30px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(30, 60, 114, 0.4);
-    }
-    .form-control, .form-select {
-      border: 2px solid #e3e8ef;
-      border-radius: 10px;
-      padding: 12px 15px;
-      transition: all 0.3s ease;
-    }
-    .form-control:focus, .form-select:focus {
-      border-color: #2a5298;
-      box-shadow: 0 0 0 0.2rem rgba(42, 82, 152, 0.25);
-    }
-    .form-label {
-      font-weight: 600;
-      color: #2c3e50;
-      margin-bottom: 8px;
-    }
-    .error-msg {
-      color: #dc3545;
-      font-size: 0.875em;
-      margin-top: 5px;
-      display: block;
-    }
-    .table {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    }
-    .table thead th {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-      color: white;
-      border: none;
-      font-weight: 600;
-      padding: 15px;
-    }
-    .table tbody td {
-      padding: 12px 15px;
-      border-bottom: 1px solid #e9ecef;
-    }
-    .table tbody tr:hover {
-      background-color: #f8f9fa;
-    }
-    .page-title {
-      color: white;
-      font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      margin-bottom: 2rem;
-    }
-    .admin-info {
-      color: white;
-      text-align: right;
-    }
-  </style>
+  <link rel="stylesheet" href="style/index.css" />
+
 </head>
 <body>
 <div class="container-fluid py-5">
@@ -215,7 +136,7 @@ $('#registerForm').on('submit', function(e) {
       $('body').prepend(`<div class="alert alert-success text-center">
         <i class="fas fa-check-circle me-2"></i>${res.message}</div>`);
 
-      // ✅ Append new row with returned data
+
       $('#studentTable').append(`<tr>
         <td>${res.data.id}</td>
         <td>${res.data.name}</td>
@@ -224,7 +145,7 @@ $('#registerForm').on('submit', function(e) {
         <td>${res.data.number}</td>
       </tr>`);
 
-      // ✅ Remove "No students" row if it exists
+
       $('#studentTable tr').each(function(){
         if ($(this).text().includes('No students')) {
           $(this).remove();
